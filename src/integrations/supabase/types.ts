@@ -14,13 +14,171 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      booking_requests: {
+        Row: {
+          access_notes: string | null
+          access_within_four_meters: string
+          asap: boolean
+          billing_city: string | null
+          billing_postcode: string | null
+          billing_same_as_delivery: boolean
+          billing_street: string | null
+          company_name: string | null
+          concrete_type: string
+          created_at: string
+          customer_type: string
+          delivery_city: string
+          delivery_postcode: string
+          delivery_street: string
+          dimensions: Json | null
+          distance_meters: number | null
+          email: string
+          extra_hose_meters: number
+          first_name: string
+          flexible_planning: boolean
+          id: string
+          internal_reference: string | null
+          last_name: string
+          net_volume_m3: number
+          obstacles: string | null
+          order_volume_m3: number
+          phone: string
+          preferred_date: string | null
+          preferred_timeslot: string | null
+          price_lines: Json
+          project_notes: string | null
+          project_type: string
+          request_number: string
+          safety_margin_m3: number
+          status: string
+          subtotal_ex_vat: number
+          total_inc_vat: number
+          unloading_method: string
+          unloading_minutes: number | null
+          vat_amount: number
+        }
+        Insert: {
+          access_notes?: string | null
+          access_within_four_meters: string
+          asap?: boolean
+          billing_city?: string | null
+          billing_postcode?: string | null
+          billing_same_as_delivery?: boolean
+          billing_street?: string | null
+          company_name?: string | null
+          concrete_type: string
+          created_at?: string
+          customer_type: string
+          delivery_city: string
+          delivery_postcode: string
+          delivery_street: string
+          dimensions?: Json | null
+          distance_meters?: number | null
+          email: string
+          extra_hose_meters?: number
+          first_name: string
+          flexible_planning?: boolean
+          id?: string
+          internal_reference?: string | null
+          last_name: string
+          net_volume_m3: number
+          obstacles?: string | null
+          order_volume_m3: number
+          phone: string
+          preferred_date?: string | null
+          preferred_timeslot?: string | null
+          price_lines?: Json
+          project_notes?: string | null
+          project_type: string
+          request_number: string
+          safety_margin_m3?: number
+          status?: string
+          subtotal_ex_vat: number
+          total_inc_vat: number
+          unloading_method: string
+          unloading_minutes?: number | null
+          vat_amount: number
+        }
+        Update: {
+          access_notes?: string | null
+          access_within_four_meters?: string
+          asap?: boolean
+          billing_city?: string | null
+          billing_postcode?: string | null
+          billing_same_as_delivery?: boolean
+          billing_street?: string | null
+          company_name?: string | null
+          concrete_type?: string
+          created_at?: string
+          customer_type?: string
+          delivery_city?: string
+          delivery_postcode?: string
+          delivery_street?: string
+          dimensions?: Json | null
+          distance_meters?: number | null
+          email?: string
+          extra_hose_meters?: number
+          first_name?: string
+          flexible_planning?: boolean
+          id?: string
+          internal_reference?: string | null
+          last_name?: string
+          net_volume_m3?: number
+          obstacles?: string | null
+          order_volume_m3?: number
+          phone?: string
+          preferred_date?: string | null
+          preferred_timeslot?: string | null
+          price_lines?: Json
+          project_notes?: string | null
+          project_type?: string
+          request_number?: string
+          safety_margin_m3?: number
+          status?: string
+          subtotal_ex_vat?: number
+          total_inc_vat?: number
+          unloading_method?: string
+          unloading_minutes?: number | null
+          vat_amount?: number
+        }
+        Relationships: []
+      }
+      callback_requests: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          phone: string
+          preferred_moment: string | null
+          question: string | null
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+          phone: string
+          preferred_moment?: string | null
+          question?: string | null
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          phone?: string
+          preferred_moment?: string | null
+          question?: string | null
+          status?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      next_booking_request_number: { Args: never; Returns: string }
     }
     Enums: {
       [_ in never]: never
