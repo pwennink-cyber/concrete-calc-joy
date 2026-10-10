@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Calculator as CalcIcon } from "lucide-react";
 import { pricing } from "@/config/site";
-import { formatNumber } from "@/lib/format";
+import { formatVolume } from "@/lib/format";
 
 export function QuickCalc() {
   const [l, setL] = useState("");
@@ -42,7 +42,7 @@ export function QuickCalc() {
       </div>
       <div className="mt-4 rounded-md bg-secondary p-4" aria-live="polite">
         <p className="text-sm text-muted-foreground">Aanbevolen bestelhoeveelheid (incl. 5% marge)</p>
-        <p className="text-2xl font-extrabold">{net > 0 ? `${formatNumber(advised)} m³` : "– m³"}</p>
+        <p className="text-2xl font-extrabold">{net > 0 ? formatVolume(advised) : "– m³"}</p>
       </div>
       <Link
         to="/bestellen"
