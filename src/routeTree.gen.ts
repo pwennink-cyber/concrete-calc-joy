@@ -10,33 +10,103 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BestellenRouteImport } from './routes/bestellen'
+import { Route as CookiesRouteImport } from './routes/cookies'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as VoorwaardenRouteImport } from './routes/voorwaarden'
+import { Route as BevestigingAanvraagnummerRouteImport } from './routes/bevestiging.$aanvraagnummer'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BestellenRoute = BestellenRouteImport.update({
+  id: '/bestellen',
+  path: '/bestellen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VoorwaardenRoute = VoorwaardenRouteImport.update({
+  id: '/voorwaarden',
+  path: '/voorwaarden',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BevestigingAanvraagnummerRoute =
+  BevestigingAanvraagnummerRouteImport.update({
+    id: '/bevestiging/$aanvraagnummer',
+    path: '/bevestiging/$aanvraagnummer',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bestellen': typeof BestellenRoute
+  '/cookies': typeof CookiesRoute
+  '/privacy': typeof PrivacyRoute
+  '/voorwaarden': typeof VoorwaardenRoute
+  '/bevestiging/$aanvraagnummer': typeof BevestigingAanvraagnummerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bestellen': typeof BestellenRoute
+  '/cookies': typeof CookiesRoute
+  '/privacy': typeof PrivacyRoute
+  '/voorwaarden': typeof VoorwaardenRoute
+  '/bevestiging/$aanvraagnummer': typeof BevestigingAanvraagnummerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bestellen': typeof BestellenRoute
+  '/cookies': typeof CookiesRoute
+  '/privacy': typeof PrivacyRoute
+  '/voorwaarden': typeof VoorwaardenRoute
+  '/bevestiging/$aanvraagnummer': typeof BevestigingAanvraagnummerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/bestellen'
+    | '/cookies'
+    | '/privacy'
+    | '/voorwaarden'
+    | '/bevestiging/$aanvraagnummer'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/bestellen'
+    | '/cookies'
+    | '/privacy'
+    | '/voorwaarden'
+    | '/bevestiging/$aanvraagnummer'
+  id:
+    | '__root__'
+    | '/'
+    | '/bestellen'
+    | '/cookies'
+    | '/privacy'
+    | '/voorwaarden'
+    | '/bevestiging/$aanvraagnummer'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BestellenRoute: typeof BestellenRoute
+  CookiesRoute: typeof CookiesRoute
+  PrivacyRoute: typeof PrivacyRoute
+  VoorwaardenRoute: typeof VoorwaardenRoute
+  BevestigingAanvraagnummerRoute: typeof BevestigingAanvraagnummerRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +118,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bestellen': {
+      id: '/bestellen'
+      path: '/bestellen'
+      fullPath: '/bestellen'
+      preLoaderRoute: typeof BestellenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/voorwaarden': {
+      id: '/voorwaarden'
+      path: '/voorwaarden'
+      fullPath: '/voorwaarden'
+      preLoaderRoute: typeof VoorwaardenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bevestiging/$aanvraagnummer': {
+      id: '/bevestiging/$aanvraagnummer'
+      path: '/bevestiging/$aanvraagnummer'
+      fullPath: '/bevestiging/$aanvraagnummer'
+      preLoaderRoute: typeof BevestigingAanvraagnummerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BestellenRoute: BestellenRoute,
+  CookiesRoute: CookiesRoute,
+  PrivacyRoute: PrivacyRoute,
+  VoorwaardenRoute: VoorwaardenRoute,
+  BevestigingAanvraagnummerRoute: BevestigingAanvraagnummerRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
